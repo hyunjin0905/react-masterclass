@@ -1,8 +1,16 @@
 import styled, {keyframes} from "styled-components"
 
-
-const Father = styled.div`
+const Title = styled.h1`
+    color: ${(props => props.theme.textColor)}
+`
+const Wrapper = styled.div`
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.backgroundColor}
+  
 `;
 const RotateAnimation = keyframes`
     0%{
@@ -39,11 +47,12 @@ const Box = styled.div`
 
 function App() {
   return(
-      <Father as="header">
+      <Wrapper>
+          <Title>hello</Title>
           <Box bgColor="tomato">
               <Emoji>🤡</Emoji>
           </Box>
-      </Father>
+      </Wrapper>
   )
 }
 
