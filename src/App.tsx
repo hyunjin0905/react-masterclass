@@ -5,7 +5,7 @@ const Container = styled.div`
     background-color: ${props => props.theme.bgColor}
 `
 const H1 = styled.h1`
-    color: ${props => props.theme.textColor}
+      color: ${props => props.theme.textColor}
 `
 const Globalstyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
@@ -66,6 +66,7 @@ body {
 }
 a {
   text-decoration:none;
+  color: inherit;
 }
 `;
 function App() {
