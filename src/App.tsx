@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Router from "./Router";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const Container = styled.div`
     background-color: ${props => props.theme.bgColor}
@@ -74,6 +75,7 @@ function App() {
       <Container>
           <Globalstyle/>
           <Router/>
+          <ReactQueryDevtools initialIsOpen={true}/>
       </Container>
   )
 }
