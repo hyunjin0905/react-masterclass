@@ -27,12 +27,12 @@ const Coin = styled.li`
     display: block;
   }
  &:hover {
-     color: ${(props) => props.theme.accentColor};
+     color: ${(props) => props.theme.btnColor};
   }
 `;
 const Title = styled.h1`
     font-size: 48px;
-    color:${props => props.theme.accentColor}
+    color:${props => props.theme.btnColor}
 `
 const Loader = styled.span`
     text-align: center;

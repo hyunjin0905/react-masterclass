@@ -6,11 +6,13 @@ import Chart from "./Chart";
 import { useQuery } from "react-query";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
 import { Helmet } from "react-helmet";
+import { useSetRecoilState } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 
 const Title = styled.h1`
   font-size: 48px;
-  color: ${(props) => props.theme.accentColor};
+  color: ${(props) => props.theme.btnColor};
 `;
 
 const Loader = styled.span`
@@ -69,7 +71,7 @@ const Tab = styled.span<{ isActive: boolean }>`
   padding: 7px 0px;
   border-radius: 10px;
   color: ${(props) =>
-    props.isActive ? props.theme.accentColor : props.theme.textColor};
+    props.isActive ? props.theme.btnColor : props.theme.textColor};
   a {
     display: block;
   }
@@ -81,7 +83,7 @@ interface RouteParams {
 interface RouteState {
     name: string;
 }
-interface InfoData {
+export interface InfoData {
     id: string;
     name: string;
     symbol: string;
@@ -147,13 +149,16 @@ function Coin() {
             refetchInterval: 5000
         }
     );
+    const setDarkAtom = useSetRecoilState(isDarkAtom);
+    const toggleDarkAtom = () => setDarkAtom((prev) => !prev);
     const loading = infoLoading || tickersLoading
     return(
     <Container>
         <Helmet>
             <title>
-                {state?.name ? state.name : loading ? "Loading..." : infoData?.name}
+                코인
             </title>
+            <button onClick={toggleDarkAtom}>Toggle Mode</button>
         </Helmet>
         <Header>
             <Title>
